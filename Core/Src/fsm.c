@@ -113,7 +113,7 @@ void fsm_function(){
 			updateLEDbuffer(1,counter);
 			break;
 		case YELLOW1_RED2:
-			trafficDisplay(RED1_YELLOW2);
+			trafficDisplay(YELLOW1_RED2);
 			//NEXT STATUS SETTING
 			if(timer1_flag == 1){
 				setTimer1(green_timer_init*100);
