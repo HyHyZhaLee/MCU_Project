@@ -1,23 +1,19 @@
 /*
  * software_timer.h
  *
- *  Created on: Oct 1, 2023
- *      Author: ADMIN
+ *  Created on: Sep 23, 2023
+ *      Author: Admin
  */
 
 #ifndef INC_SOFTWARE_TIMER_H_
 #define INC_SOFTWARE_TIMER_H_
 
-extern int timer0_flag;
-extern int timer1_flag;
-extern int timer2_flag;
-extern int timer3_flag;
-extern int timer4_flag;
-void setTimer0(int duration);
-void setTimer1(int duration);
-void setTimer2(int duration);
-void setTimer3(int duration);
-void setTimer4(int duration);
-void timerRun();
+#include "global.h"
+#define NO_OF_TIMER	3
+#define TICK 10
 
+extern int timer_flag[NO_OF_TIMER];
+void setTimer(int duration, int ID);
+void timerRun();
+void initTimer(int delay);
 #endif /* INC_SOFTWARE_TIMER_H_ */
