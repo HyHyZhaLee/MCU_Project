@@ -77,3 +77,12 @@ void pedestrianDispay(uint8_t input){
 			break;
 	}
 }
+
+void BuzzerOn(){
+	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,1000);
+}
+
+
+void BuzzerOff(){
+	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
+}
