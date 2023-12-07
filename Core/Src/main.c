@@ -95,22 +95,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-
-	trafficDisplay1(RED);
-	trafficDisplay2(GREEN);
+	pedestrianDispay(RED);
 	HAL_Delay(1000);
 
-	trafficDisplay1(RED);
-	trafficDisplay2(YELLOW);
+	pedestrianDispay(YELLOW);
 	HAL_Delay(1000);
 
-	trafficDisplay1(GREEN);
-	trafficDisplay2(RED);
+	pedestrianDispay(GREEN);
 	HAL_Delay(1000);
 
-	trafficDisplay1(YELLOW);
-	trafficDisplay2(RED);
+	pedestrianDispay(OFF);
 	HAL_Delay(5000);
 
 //	  HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
@@ -218,11 +212,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DEBUG_LED1_Pin|BUZZER_Pin|TRAFFIC1_BIT1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DEBUG_LED1_Pin|BUZZER_Pin|PEDLED_BIT2_Pin|TRAFFIC1_BIT1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, PEDLED_BIT1_Pin|TRAFFIC1_BIT2_Pin|TRAFFIC2_BIT2_Pin|TRAFFIC2_BIT1_Pin
-                          |PEDLED_BIT2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, PEDLED_BIT1_Pin|TRAFFIC1_BIT2_Pin|TRAFFIC2_BIT2_Pin|TRAFFIC2_BIT1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DEBUG_LED2_GPIO_Port, DEBUG_LED2_Pin, GPIO_PIN_RESET);
@@ -233,8 +226,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DEBUG_LED1_Pin BUZZER_Pin TRAFFIC1_BIT1_Pin */
-  GPIO_InitStruct.Pin = DEBUG_LED1_Pin|BUZZER_Pin|TRAFFIC1_BIT1_Pin;
+  /*Configure GPIO pins : DEBUG_LED1_Pin BUZZER_Pin PEDLED_BIT2_Pin TRAFFIC1_BIT1_Pin */
+  GPIO_InitStruct.Pin = DEBUG_LED1_Pin|BUZZER_Pin|PEDLED_BIT2_Pin|TRAFFIC1_BIT1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -246,10 +239,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(BUTTON3_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PEDLED_BIT1_Pin TRAFFIC1_BIT2_Pin TRAFFIC2_BIT2_Pin TRAFFIC2_BIT1_Pin
-                           PEDLED_BIT2_Pin */
-  GPIO_InitStruct.Pin = PEDLED_BIT1_Pin|TRAFFIC1_BIT2_Pin|TRAFFIC2_BIT2_Pin|TRAFFIC2_BIT1_Pin
-                          |PEDLED_BIT2_Pin;
+  /*Configure GPIO pins : PEDLED_BIT1_Pin TRAFFIC1_BIT2_Pin TRAFFIC2_BIT2_Pin TRAFFIC2_BIT1_Pin */
+  GPIO_InitStruct.Pin = PEDLED_BIT1_Pin|TRAFFIC1_BIT2_Pin|TRAFFIC2_BIT2_Pin|TRAFFIC2_BIT1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

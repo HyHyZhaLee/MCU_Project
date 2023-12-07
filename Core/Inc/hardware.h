@@ -31,6 +31,8 @@
 
 void trafficDisplay1(uint8_t input);
 void trafficDisplay2(uint8_t input);
+void pedestrianDispay(uint8_t input);
+
 
 
 #endif /* INC_HARDWARE_H_ */

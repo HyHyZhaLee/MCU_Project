@@ -54,3 +54,26 @@ void trafficDisplay2(uint8_t input){
 			break;
 	}
 }
+
+void pedestrianDispay(uint8_t input){
+	switch (input) {
+		case OFF:
+		  HAL_GPIO_WritePin(PEDLED_BIT1_GPIO_Port, PEDLED_BIT1_Pin, 0);
+		  HAL_GPIO_WritePin(PEDLED_BIT2_GPIO_Port, PEDLED_BIT2_Pin, 0);
+		  break;
+		case RED:
+			  HAL_GPIO_WritePin(PEDLED_BIT1_GPIO_Port, PEDLED_BIT1_Pin, 1);
+			  HAL_GPIO_WritePin(PEDLED_BIT2_GPIO_Port, PEDLED_BIT2_Pin, 0);
+		  break;
+		case GREEN:
+			  HAL_GPIO_WritePin(PEDLED_BIT1_GPIO_Port, PEDLED_BIT1_Pin, 0);
+			  HAL_GPIO_WritePin(PEDLED_BIT2_GPIO_Port, PEDLED_BIT2_Pin, 1);
+		  break;
+		case YELLOW:
+			  HAL_GPIO_WritePin(PEDLED_BIT1_GPIO_Port, PEDLED_BIT1_Pin, 1);
+			  HAL_GPIO_WritePin(PEDLED_BIT2_GPIO_Port, PEDLED_BIT2_Pin, 1);
+		  break;
+		default:
+			break;
+	}
+}

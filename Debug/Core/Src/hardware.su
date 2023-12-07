@@ -1,2 +1,3 @@
 ../Core/Src/hardware.c:12:6:trafficDisplay1	16	static
 ../Core/Src/hardware.c:35:6:trafficDisplay2	16	static
+../Core/Src/hardware.c:58:6:pedestrianDispay	16	static

@@ -73,6 +73,8 @@ void Error_Handler(void);
 #define PEDLED_BIT1_GPIO_Port GPIOB
 #define DEBUG_LED2_Pin GPIO_PIN_9
 #define DEBUG_LED2_GPIO_Port GPIOC
+#define PEDLED_BIT2_Pin GPIO_PIN_8
+#define PEDLED_BIT2_GPIO_Port GPIOA
 #define TRAFFIC1_BIT1_Pin GPIO_PIN_10
 #define TRAFFIC1_BIT1_GPIO_Port GPIOA
 #define TRAFFIC1_BIT2_Pin GPIO_PIN_3
@@ -81,8 +83,6 @@ void Error_Handler(void);
 #define TRAFFIC2_BIT2_GPIO_Port GPIOB
 #define TRAFFIC2_BIT1_Pin GPIO_PIN_5
 #define TRAFFIC2_BIT1_GPIO_Port GPIOB
-#define PEDLED_BIT2_Pin GPIO_PIN_8
-#define PEDLED_BIT2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
