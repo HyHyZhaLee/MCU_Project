@@ -88,24 +88,18 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2 );
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  initButton();
   while (1)
   {
-	pedestrianDispay(RED);
-	HAL_Delay(1000);
-
-	pedestrianDispay(YELLOW);
-	HAL_Delay(1000);
-
-	pedestrianDispay(GREEN);
-	HAL_Delay(1000);
-
-	pedestrianDispay(OFF);
-	HAL_Delay(5000);
+	  if(is_button_pressed(0)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+	  if(is_button_pressed(1)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+	  if(is_button_pressed(2)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+	  if(is_button_pressed(3)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
 
 //	  HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
 //	  HAL_Delay(1000);
