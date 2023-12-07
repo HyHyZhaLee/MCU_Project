@@ -1,21 +1,17 @@
 /*
- * button.h
+ * input_reading.h
  *
  *  Created on: Oct 23, 2023
- *      Author: ADMIN
+ *      Author: Admin
  */
 
-#ifndef INC_BUTTON_H_
-#define INC_BUTTON_H_
+#ifndef INC_INPUT_READING_H_
+#define INC_INPUT_READING_H_
 
-#include "main.h"
+#include "global.h"
+void initButton();
+void button_reading ( void ) ;
+unsigned char is_button_pressed ( unsigned char index ) ;
+unsigned char is_button_long_pressed( unsigned char index ) ;
 
-#define NORMAL_STATE GPIO_PIN_SET
-#define PRESSED_STATE GPIO_PIN_RESET
-
-extern int button1_flag;
-
-int isButtonPressed(int index);
-void getKeyInput();
-
-#endif /* INC_BUTTON_H_ */
+#endif /* INC_INPUT_READING_H_ */
