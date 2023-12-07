@@ -8,10 +8,11 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
-#include "software_timer.h"
-#include "button.h"
-#include "7SEG.h"
-
+//#include "software_timer.h"
+//#include "button.h"
+//#include "7SEG.h"
+#include "main.h"
+#include "hardware.h"
 //Define duration of LEDs
 
 //Use to define states

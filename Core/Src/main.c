@@ -95,9 +95,26 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-	  HAL_Delay(1000);
-	  HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+
+
+	trafficDisplay1(RED);
+	trafficDisplay2(GREEN);
+	HAL_Delay(1000);
+
+	trafficDisplay1(RED);
+	trafficDisplay2(YELLOW);
+	HAL_Delay(1000);
+
+	trafficDisplay1(GREEN);
+	trafficDisplay2(RED);
+	HAL_Delay(1000);
+
+	trafficDisplay1(YELLOW);
+	trafficDisplay2(RED);
+	HAL_Delay(5000);
+
+//	  HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+//	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -197,27 +214,53 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DEBUG_LED1_Pin|BUZZER_Pin|TRAFFIC1_BIT1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, PEDLED_BIT1_Pin|TRAFFIC1_BIT2_Pin|TRAFFIC2_BIT2_Pin|TRAFFIC2_BIT1_Pin
+                          |PEDLED_BIT2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED1_Pin */
-  GPIO_InitStruct.Pin = LED1_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(DEBUG_LED2_GPIO_Port, DEBUG_LED2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : BUTTON0_Pin BUTTON1_Pin BUTTON2_Pin */
+  GPIO_InitStruct.Pin = BUTTON0_Pin|BUTTON1_Pin|BUTTON2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : DEBUG_LED1_Pin BUZZER_Pin TRAFFIC1_BIT1_Pin */
+  GPIO_InitStruct.Pin = DEBUG_LED1_Pin|BUZZER_Pin|TRAFFIC1_BIT1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED1_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LED2_Pin */
-  GPIO_InitStruct.Pin = LED2_Pin;
+  /*Configure GPIO pin : BUTTON3_Pin */
+  GPIO_InitStruct.Pin = BUTTON3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(BUTTON3_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PEDLED_BIT1_Pin TRAFFIC1_BIT2_Pin TRAFFIC2_BIT2_Pin TRAFFIC2_BIT1_Pin
+                           PEDLED_BIT2_Pin */
+  GPIO_InitStruct.Pin = PEDLED_BIT1_Pin|TRAFFIC1_BIT2_Pin|TRAFFIC2_BIT2_Pin|TRAFFIC2_BIT1_Pin
+                          |PEDLED_BIT2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DEBUG_LED2_Pin */
+  GPIO_InitStruct.Pin = DEBUG_LED2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(DEBUG_LED2_GPIO_Port, &GPIO_InitStruct);
 
 }
 
