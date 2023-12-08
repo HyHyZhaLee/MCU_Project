@@ -1,5 +1,5 @@
-../Core/Src/hardware.c:12:6:trafficDisplay1	16	static
-../Core/Src/hardware.c:35:6:trafficDisplay2	16	static
-../Core/Src/hardware.c:58:6:pedestrianDispay	16	static
-../Core/Src/hardware.c:81:6:BuzzerOn	4	static
-../Core/Src/hardware.c:86:6:BuzzerOff	4	static
+hardware.c:12:6:trafficDisplay1	16	static
+hardware.c:35:6:trafficDisplay2	16	static
+hardware.c:58:6:pedestrianDispay	16	static
+hardware.c:81:6:BuzzerOn	4	static
+hardware.c:86:6:BuzzerOff	4	static
