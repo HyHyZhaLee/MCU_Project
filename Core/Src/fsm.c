@@ -38,9 +38,6 @@ void fsm_function(){
 			//BUTTON PROCESSING
 			if(is_button_pressed(0) == 1){
 				status = MODE_2;
-				setTimer(25,2);
-				setTimer(100,3);
-				setTimer(100,4);
 			}
 			break;
 		case RED1_YELLOW2:
@@ -53,9 +50,6 @@ void fsm_function(){
 			}
 			//BUTTON PROCESSING
 			if(is_button_pressed(0) == 1){
-				setTimer(25,2);
-				setTimer(100,3);
-				setTimer(100,4);
 				status = MODE_2;
 			}
 			break;
@@ -83,7 +77,6 @@ void fsm_function(){
 			//DECEMENT THE VALUE BY 1 EACH SECOND
 			//BUTTON PROCESSING
 			if(is_button_pressed(0) == 1){
-				setTimer(100,3);
 				status = MODE_2;
 			}
 			break;
