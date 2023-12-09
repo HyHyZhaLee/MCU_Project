@@ -12,6 +12,7 @@
 #include "button.h"
 #include "main.h"
 #include "hardware.h"
+#include "scheduler.h"
 //Define duration of LEDs
 
 //Use to define states
