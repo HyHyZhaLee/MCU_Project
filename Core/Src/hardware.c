@@ -86,3 +86,38 @@ void BuzzerOn(){
 void BuzzerOff(){
 	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
 }
+void runAutoDebug() {
+#ifndef __TEST_BUTTON
+    // This code runs when __TEST_BUTTON is not defined
+
+    #ifdef __TEST_BUZZER
+        BuzzerOn();
+        HAL_Delay(1000);
+        BuzzerOff();
+        HAL_Delay(5000);
+    #endif //__TEST_BUZZER
+
+    #ifdef __TEST_TRAFFIC
+        // Simulate traffic and pedestrian lights
+        trafficDisplay1(RED);
+        trafficDisplay2(GREEN);
+        pedestrianDisplay(RED);
+        HAL_Delay(2000);
+
+        trafficDisplay1(GREEN);
+        trafficDisplay2(RED);
+        pedestrianDisplay(GREEN);
+        HAL_Delay(2000);
+    #endif //__TEST_TRAFFIC
+
+#else
+    // This code runs when __TEST_BUTTON is defined
+
+    // Check if buttons are pressed and toggle DEBUG_LED1 accordingly
+        if(is_button_pressed(0)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+        if(is_button_pressed(1)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+        if(is_button_pressed(2)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+        if(is_button_pressed(3)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+#endif //__TEST_BUTTON
+}
+

@@ -101,14 +101,8 @@ int main(void)
   initButton();
   while (1)
   {
-	  BuzzerOn();
-	  HAL_Delay(1000);
 
-	  BuzzerOff();
-	  HAL_Delay(5000);
-
-//	  HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
-//	  HAL_Delay(1000);
+	  runAutoDebug();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

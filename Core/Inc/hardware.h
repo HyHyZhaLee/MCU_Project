@@ -43,5 +43,12 @@ unsigned char is_button_long_pressed( unsigned char index ) ; 	//CHECK BUTTON LO
 //BUZZER
 void BuzzerOn(); //TURN ON BUZZER
 void BuzzerOff();//TURN OFF BUZZER
-
+/*
+ * FOR RUNNING DEBUG HARDWARE
+ * UNCOMMENT THESE LINE:
+ */
+//#define __TEST_BUTTON
+//#define __TEST_TRAFFIC
+//#define __TEST_BUZZER
+void runAutoDebug(); //RUNNING DEBUG
 #endif /* INC_HARDWARE_H_ */
