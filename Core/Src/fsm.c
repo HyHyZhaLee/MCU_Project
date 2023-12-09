@@ -17,6 +17,11 @@ int yellow_timer_init  = 2;
 int green_timer_init  = 3;
 int red_timer_init  = 5;
 
+int red_temp = 0;
+int yellow_temp = 0;
+int green_temp = 0;
+
+
 int total = 0;
 
 
@@ -168,22 +173,26 @@ void fsm_function(){
 			}
 			//BUTTON1 PRESSED
 			if(is_button_pressed(1) == 1){
+				red_temp = red_timer_init;
 				//ADD UP RED
-				if(red_timer_init >= 99){
-					red_timer_init =0;
+				if(red_temp >= 99){
+					red_temp =0;
 				}
 				else{
-					red_timer_init++;
+					red_temp++;
 				}
 			}
 			//BUTTON2 PRESSED
 			if(is_button_pressed(2) == 1){
 				//SAVE
-				int yellow_timer_init = red_timer_init - green_timer_init;
+				red_timer_init = red_temp;
+				//RESET CONDITION
+				yellow_timer_init = red_timer_init - green_timer_init;
+				green_timer_init = red_timer_init - yellow_timer_init;
+				red_timer_init = yellow_timer_init + green_timer_init;
+
 				status = INIT;
 			}
-			//TOGGLE LED FUNCTION
-			//TODO
 			break;
 		case MODE_3:
 			//TOGGLE RED
@@ -194,48 +203,56 @@ void fsm_function(){
 			}
 			//BUTTON1 PRESSED
 			if(is_button_pressed(1) == 1){
+				yellow_temp = yellow_timer_init;
 				//ADD UP YELLOW
-				if(yellow_timer_init >= 99){
-					yellow_timer_init = 0;
+				if(yellow_temp >= 99){
+					yellow_temp = 0;
 				}
 				else{
-					yellow_timer_init++;
+					yellow_temp++;
 				}
 			}
 			//BUTTON2 PRESSED
 			if(is_button_pressed(2) == 1){
 				//SAVE
+				yellow_timer_init = yellow_temp;
+				//RESET CONDITION
+				yellow_timer_init = red_timer_init - green_timer_init;
 				green_timer_init = red_timer_init - yellow_timer_init;
+				red_timer_init = yellow_timer_init + green_timer_init;
+
 				status = INIT;
 			}
-			//TOGGLE LED FUNCTION
-			//TODO
 			break;
 		case MODE_4:
 			//TOGGLE RED
 			trafficToggle(GREEN);
 			//BUTTON0 PRESSED
 			if(is_button_pressed(0) == 1){
-				status = MODE_2 ;
+				status = INIT ;
 			}
 			//BUTTON1 PRESSED
 			if(is_button_pressed(1) == 1){
+				green_temp = green_timer_init;
 				//ADD UP GREEN
-				if(green_timer_init >= 99){
-					green_timer_init =0;
+				if(green_temp >= 99){
+					green_temp =0;
 				}
 				else{
-					green_timer_init++;
+					green_temp++;
 				}
 			}
 			//BUTTON2 PRESSED
 			if(is_button_pressed(2) == 1){
 				//SAVE
+				green_timer_init = green_temp;;
+				//RESET CONDITION
+				yellow_timer_init = red_timer_init - green_timer_init;
+				green_timer_init = red_timer_init - yellow_timer_init;
 				red_timer_init = yellow_timer_init + green_timer_init;
+
 				status = INIT;
 			}
-			//TOGGLE LED FUNCTION
-			//TODO
 			break;
 		default:
 			break;
