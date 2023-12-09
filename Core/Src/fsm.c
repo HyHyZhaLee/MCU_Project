@@ -189,9 +189,8 @@ void fsm_function(){
 				//RESET CONDITION
 				yellow_timer_init = red_timer_init - green_timer_init;
 				green_timer_init = red_timer_init - yellow_timer_init;
-				red_timer_init = yellow_timer_init + green_timer_init;
 
-				status = INIT;
+				status = MODE_3;
 			}
 			break;
 		case MODE_3:
@@ -217,11 +216,10 @@ void fsm_function(){
 				//SAVE
 				yellow_timer_init = yellow_temp;
 				//RESET CONDITION
-				yellow_timer_init = red_timer_init - green_timer_init;
 				green_timer_init = red_timer_init - yellow_timer_init;
 				red_timer_init = yellow_timer_init + green_timer_init;
 
-				status = INIT;
+				status = MODE_4;
 			}
 			break;
 		case MODE_4:
@@ -248,7 +246,6 @@ void fsm_function(){
 				green_timer_init = green_temp;;
 				//RESET CONDITION
 				yellow_timer_init = red_timer_init - green_timer_init;
-				green_timer_init = red_timer_init - yellow_timer_init;
 				red_timer_init = yellow_timer_init + green_timer_init;
 
 				status = INIT;
