@@ -1,1 +1,2 @@
-fsm.c:21:6:fsm_function	8	static
+fsm.c:23:6:fsm_function	16	static
+fsm.c:222:6:fsm_pedestrian	4	static

@@ -3,3 +3,4 @@ hardware.c:35:6:trafficDisplay2	16	static
 hardware.c:58:6:pedestrianDispay	16	static
 hardware.c:81:6:BuzzerOn	4	static
 hardware.c:86:6:BuzzerOff	4	static
+hardware.c:89:6:Buzzer_process	4	static
