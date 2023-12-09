@@ -11,5 +11,6 @@
 #include "global.h"
 
 void fsm_function();
+void fsm_pedestrian();
 
 #endif /* INC_FSM_H_ */
