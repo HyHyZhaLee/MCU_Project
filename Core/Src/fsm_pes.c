@@ -14,7 +14,7 @@ void fsm_pedestrian(){
 				pedestrianDispay(GREEN);
 				break;
 			case RED1_YELLOW2:
-				pedestrianDispay(TOGGLE);
+				pedestrianDisplay(TOGGLE);
 				// time to walk running out
 				BuzzerOn();
 				break;
@@ -33,6 +33,6 @@ void fsm_pedestrian(){
 	if(timer_flag[TIMER_PEDESTRIAN_PERIOD]){
 		timer_flag[TIMER_PEDESTRIAN_PERIOD] = 0;
 		pedestrianDispay(OFF);
-		ped_flag = 0;
+		pes_flag = 0;
 	}
 }
