@@ -31,8 +31,10 @@
 #define MODE_2 	41
 #define MODE_3	42
 #define MODE_4	43
+#define PEDESTRIAN_MODE 44
 
 extern int status;
-
+extern int counter;
+extern int pes_flag;
 
 #endif /* INC_GLOBAL_H_ */
