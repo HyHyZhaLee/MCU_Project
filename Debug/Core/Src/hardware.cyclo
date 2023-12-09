@@ -1,6 +1,7 @@
 ../Core/Src/hardware.c:12:6:trafficDisplay1	5
 ../Core/Src/hardware.c:35:6:trafficDisplay2	5
-../Core/Src/hardware.c:58:6:pedestrianDispay	5
-../Core/Src/hardware.c:81:6:BuzzerOn	1
-../Core/Src/hardware.c:86:6:BuzzerOff	1
-../Core/Src/hardware.c:89:6:runAutoDebug	1
+../Core/Src/hardware.c:59:6:trafficToggle	7
+../Core/Src/hardware.c:86:6:pedestrianDispay	5
+../Core/Src/hardware.c:109:6:BuzzerOn	1
+../Core/Src/hardware.c:114:6:BuzzerOff	1
+../Core/Src/hardware.c:117:6:runAutoDebug	1
