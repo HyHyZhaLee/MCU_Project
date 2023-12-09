@@ -14,7 +14,17 @@
 #include "hardware.h"
 #include "scheduler.h"
 #include "fsm.h"
-//Define duration of LEDs
+//Define timers
+#define TIMER_DEBUG 0
+#define TIMER_FSM_STATE 1
+#define TIMER_PEDESTRIAN_PERIOD 3
+#define TIMER_TOGGLE	4
+//Define buttons
+#define BUTTON_MODE 0
+#define BUTTON_UP 1
+#define BUTTON_SAVE 2
+#define BUTTON_PED 3
+
 
 //Use to define states
 #define INIT 1
