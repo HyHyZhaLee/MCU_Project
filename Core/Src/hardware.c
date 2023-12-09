@@ -83,7 +83,6 @@ void trafficToggle(uint8_t input){
 	}
 }
 
-
 void pedestrianDispay(uint8_t input){
 	switch (input) {
 		case OFF:
@@ -116,12 +115,9 @@ void BuzzerOff(){
 	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
 }
 void runAutoDebug() {
-	if(timer_flag[0]){
-		setTimer(1000,0);
-		HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
-	}
 #ifndef __TEST_BUTTON
     // This code runs when __TEST_BUTTON is not defined
+
     #ifdef __TEST_BUZZER
         BuzzerOn();
         HAL_Delay(1000);
@@ -142,17 +138,14 @@ void runAutoDebug() {
         HAL_Delay(2000);
     #endif //__TEST_TRAFFIC
 
-	#ifdef __TEST_TOGGLE
-        trafficToggle(RED);
-	#endif
 #else
     // This code runs when __TEST_BUTTON is defined
 
     // Check if buttons are pressed and toggle DEBUG_LED1 accordingly
-        if(is_button_pressed(0)) HAL_GPIO_TogglePin(DEBUG_LED2_GPIO_Port, DEBUG_LED2_Pin);
-        if(is_button_pressed(1)) HAL_GPIO_TogglePin(DEBUG_LED2_GPIO_Port, DEBUG_LED2_Pin);
-        if(is_button_pressed(2)) HAL_GPIO_TogglePin(DEBUG_LED2_GPIO_Port, DEBUG_LED2_Pin);
-        if(is_button_pressed(3)) HAL_GPIO_TogglePin(DEBUG_LED2_GPIO_Port, DEBUG_LED2_Pin);
+        if(is_button_pressed(0)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+        if(is_button_pressed(1)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+        if(is_button_pressed(2)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
+        if(is_button_pressed(3)) HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
 #endif //__TEST_BUTTON
 }
 

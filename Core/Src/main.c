@@ -99,13 +99,10 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   initButton();
-  initTimer(1000);
   while (1)
   {
 
 	  runAutoDebug();
-	  fsm_function();
-	  fsm_pedestrian();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
