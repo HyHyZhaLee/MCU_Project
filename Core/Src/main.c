@@ -104,7 +104,6 @@ int main(void)
   {
 	  runAutoDebug();
 	  fsm_function();
-	  fsm_pedestrian();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
