@@ -102,7 +102,6 @@ int main(void)
   initTimer(1000);
   while (1)
   {
-
 	  runAutoDebug();
 	  fsm_function();
 	  fsm_pedestrian();

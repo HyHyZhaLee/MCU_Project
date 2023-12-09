@@ -107,6 +107,30 @@ void pedestrianDispay(uint8_t input){
 	}
 }
 
+uint8_t togglePedState = 0;
+void pedestrianToggle(uint8_t input){
+	if(timer_flag[4]){
+		setTimer(1000, 4);
+		togglePedState = 1 - togglePedState;
+	}
+	if(togglePedState){
+		switch(input){
+			case RED:
+				pedestrianDispay(RED);
+				break;
+			case YELLOW:
+				pedestrianDispay(YELLOW);
+				break;
+			case GREEN:
+				pedestrianDispay(GREEN);
+				break;
+		}
+	}
+	else {
+		pedestrianDispay(OFF);
+	}
+}
+
 void BuzzerOn(){
 	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,1000);
 }
@@ -115,6 +139,7 @@ void BuzzerOn(){
 void BuzzerOff(){
 	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
 }
+
 void runAutoDebug() {
 	if(timer_flag[0]){
 		setTimer(1000,0);
@@ -142,8 +167,12 @@ void runAutoDebug() {
         HAL_Delay(2000);
     #endif //__TEST_TRAFFIC
 
-	#ifdef __TEST_TOGGLE
+	#ifdef __TEST_TOGGLE_TRAFIC
         trafficToggle(RED);
+	#endif
+
+	#ifdef __TEST_TOGGLE_PEDESTRIAN
+        pedestrianToggle(RED);
 	#endif
 #else
     // This code runs when __TEST_BUTTON is defined
