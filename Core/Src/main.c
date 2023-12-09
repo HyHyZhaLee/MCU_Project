@@ -99,6 +99,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   initButton();
+  initTimer(1000);
   while (1)
   {
 

@@ -1,4 +1,4 @@
-button.c:27:6:initButton	16	static
-button.c:40:6:button_reading	16	static
-button.c:77:15:is_button_pressed	16	static
-button.c:86:15:is_button_long_pressed	16	static
+../Core/Src/button.c:27:6:initButton	16	static
+../Core/Src/button.c:40:6:button_reading	16	static
+../Core/Src/button.c:77:15:is_button_pressed	16	static
+../Core/Src/button.c:86:15:is_button_long_pressed	16	static
