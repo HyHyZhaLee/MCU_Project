@@ -25,7 +25,7 @@ void fsm_function(){
 		case INIT:
 			status = RED1_GREEN2;
 			//INITIALIZE
-			setTimer(green_timer_init*1000,1);
+			setTimer(green_timer_init*1000,TIMER_FSM_STATE);
 			setTimer(1000,2);
 			counter = red_timer_init;
 			trafficDisplay1(OFF);
@@ -46,7 +46,7 @@ void fsm_function(){
 			}
 			//NEXT STATUS SETTING
 			if(timer_flag[1] == 1){
-				setTimer(yellow_timer_init*1000,1);
+				setTimer(yellow_timer_init*1000,TIMER_FSM_STATE);
 				status = RED1_YELLOW2;
 			}
 			//BUTTON 0 PROCESSING
@@ -55,8 +55,12 @@ void fsm_function(){
 			}
 			//BUTTON 3 PROCESSING
 			if(is_button_pressed(3) == 1){
-				status = PEDESTRIAN_MODE;
-				setTimer(2000*total, 3);
+				setTimer(2000*total, TIMER_PEDESTRIAN_PERIOD);
+				//TODO
+				pes_flag = 1;
+				if(timer_flag[3] == 1){
+					pes_flag = 0;
+				}
 			}
 			break;
 		case RED1_YELLOW2:
@@ -73,7 +77,7 @@ void fsm_function(){
 			}
 			//NEXT STATUS SETTING
 			if(timer_flag[1] == 1){
-				setTimer(green_timer_init*1000,1);
+				setTimer(green_timer_init*1000,TIMER_FSM_STATE);
 				status = GREEN1_RED2;
 				counter = green_timer_init;
 			}
@@ -83,8 +87,12 @@ void fsm_function(){
 			}
 			//BUTTON 3 PROCESSING
 			if(is_button_pressed(3) == 1){
-				status = PEDESTRIAN_MODE;
-				setTimer(2000*total, 3);
+				setTimer(2000*total, TIMER_PEDESTRIAN_PERIOD);
+				//TODO
+				pes_flag = 1;
+				if(timer_flag[3] == 1){
+					pes_flag = 0;
+				}
 			}
 			break;
 		case GREEN1_RED2:
@@ -101,7 +109,7 @@ void fsm_function(){
 			}
 			//NEXT STATUS SETTING
 			if(timer_flag[1] == 1){
-				setTimer(yellow_timer_init*1000,1);
+				setTimer(yellow_timer_init*1000,TIMER_FSM_STATE);
 				status = YELLOW1_RED2;
 				counter = yellow_timer_init;
 			}
@@ -111,8 +119,12 @@ void fsm_function(){
 			}
 			//BUTTON 3 PROCESSING
 			if(is_button_pressed(3) == 1){
-				status = PEDESTRIAN_MODE;
-				setTimer(2000*total, 3);
+				setTimer(2000*total, TIMER_PEDESTRIAN_PERIOD);
+				//TODO
+				pes_flag = 1;
+				if(timer_flag[3] == 1){
+					pes_flag = 0;
+				}
 			}
 			break;
 		case YELLOW1_RED2:
@@ -129,7 +141,7 @@ void fsm_function(){
 			}
 			//NEXT STATUS SETTING
 			if(timer_flag[1] == 1){
-				setTimer(green_timer_init*1000,1);
+				setTimer(green_timer_init*1000,TIMER_FSM_STATE);
 				status = RED1_GREEN2;
 				counter = red_timer_init;
 			}
@@ -139,11 +151,17 @@ void fsm_function(){
 			}
 			//BUTTON 3 PROCESSING
 			if(is_button_pressed(3) == 1){
-				status = PEDESTRIAN_MODE;
-				setTimer(2000*total, 3);
+				setTimer(2000*total, TIMER_PEDESTRIAN_PERIOD);
+				//TODO
+				pes_flag = 1;
+				if(timer_flag[3] == 1){
+					pes_flag = 0;
+				}
 			}
 			break;
 		case MODE_2:
+			//TOGGLE RED
+			trafficToggle(RED);
 			//BUTTON0 PRESSED
 			if(is_button_pressed(0) == 1){
 				status = MODE_3;
@@ -168,6 +186,8 @@ void fsm_function(){
 			//TODO
 			break;
 		case MODE_3:
+			//TOGGLE RED
+			trafficToggle(YELLOW);
 			//BUTTON0 PRESSED
 			if(is_button_pressed(0) == 1){
 				status = MODE_4;
@@ -192,6 +212,8 @@ void fsm_function(){
 			//TODO
 			break;
 		case MODE_4:
+			//TOGGLE RED
+			trafficToggle(GREEN);
 			//BUTTON0 PRESSED
 			if(is_button_pressed(0) == 1){
 				status = MODE_2 ;
@@ -219,17 +241,4 @@ void fsm_function(){
 			break;
 	}
 }
-void fsm_pedestrian(){
-	switch(status){
-		case PEDESTRIAN_MODE:
-			pes_flag = 1;
-			if(timer_flag[3] == 1){
-				pes_flag = 0;
-			}
-			//BUZZER
 
-			break;
-		default:
-			break;
-	}
-}
