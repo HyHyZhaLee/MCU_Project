@@ -9,7 +9,7 @@
 #define INC_SOFTWARE_TIMER_H_
 
 #include "global.h"
-#define NO_OF_TIMER	5
+#define NO_OF_TIMER	6
 #define TICK 1
 
 extern int timer_flag[NO_OF_TIMER];

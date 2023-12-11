@@ -18,11 +18,12 @@
 #include <stdio.h>
 #include <string.h>
 //Define timers
-#define TIMER_DEBUG 0
-#define TIMER_FSM_STATE 1
-#define TIMER_FOR_UART 2
+#define TIMER_DEBUG 			0
+#define TIMER_FSM_STATE 		1
+#define TIMER_FOR_UART 			2
 #define TIMER_PEDESTRIAN_PERIOD 3
-#define TIMER_TOGGLE	4
+#define TIMER_TOGGLE			4
+#define TIMER_BUZZER			5
 
 //Define buttons
 #define BUTTON_MODE 0

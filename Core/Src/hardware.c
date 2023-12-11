@@ -132,13 +132,21 @@ void pedestrianToggle(uint8_t input){
 }
 
 uint16_t BuzzerPeriod = 500;
+uint16_t BuzzerDutyCycle = 100;
 void BuzzerOn(){
-	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,1000);
+	if(timer_flag[TIMER_DEBUG]){
+		setTimer(BuzzerPeriod, TIMER_BUZZER);
+		 __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,BuzzerDutyCycle);
+		 BuzzerDutyCycle*=2;
+		 BuzzerPeriod/=2;
+	}
 }
 
 
 void BuzzerOff(){
 	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
+	  BuzzerPeriod = 500;
+	  BuzzerDutyCycle = 100;
 }
 
 char packet[30];
