@@ -130,20 +130,32 @@ void pedestrianToggle(uint8_t input){
 		pedestrianDisplay(OFF);
 	}
 }
-
 uint16_t BuzzerPeriod = 250;
 uint16_t BuzzerDutyCycle = 500;
 uint8_t BuzzerToggle = 0;
-void BuzzerOn(){
-	if(timer_flag[TIMER_BUZZER]){
-		BuzzerToggle = 1 - BuzzerToggle;
-		setTimer(BuzzerPeriod, TIMER_BUZZER);
 
-		 BuzzerDutyCycle+=100;
-		 BuzzerPeriod-=50;
-	}
-	if(BuzzerToggle) __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,BuzzerDutyCycle);
-	else __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
+void BuzzerOn() {
+    if (timer_flag[TIMER_BUZZER]) {
+        BuzzerToggle = 1 - BuzzerToggle;
+        setTimer(BuzzerPeriod, TIMER_BUZZER);
+
+        BuzzerDutyCycle += 1000;
+        BuzzerPeriod -= 50;
+
+//        if (BuzzerDutyCycle > 2000) {
+//            BuzzerDutyCycle = 2000; // Ensure the duty cycle doesn't exceed 100%
+//        }
+
+        if (BuzzerPeriod < 50) {
+            BuzzerPeriod = 50; // Ensure the period doesn't go below 50 (adjust as needed)
+        }
+    }
+
+    if (BuzzerToggle) {
+        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, BuzzerDutyCycle);
+    } else {
+        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 0);
+    }
 }
 
 
