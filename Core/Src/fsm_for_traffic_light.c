@@ -13,9 +13,9 @@ int TRAFFIC_STATUS = INIT;             // Current traffic light status
 int flag_pedestrian = 0;       // Flag indicating pedestrian crossing
 int TRAFFIC_COUNTER = 0;               // Counter for timer
 
-int YELLOW_TIME = 2;     // Initial yellow light duration in seconds
-int GREEN_TIME = 3;      // Initial green light duration in seconds
-int RED_TIME = 5;        // Initial red light duration in seconds
+int YELLOW_TIME = 3;     // Initial yellow light duration in seconds
+int GREEN_TIME = 5;      // Initial green light duration in seconds
+int RED_TIME = 8;        // Initial red light duration in seconds
 
 int RED_TIME_TEMP = 0;              // Temporary storage for red light duration
 int YELLOW_TIME_TEMP = 0;           // Temporary storage for yellow light duration
