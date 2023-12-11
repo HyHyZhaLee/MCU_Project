@@ -1,8 +1,9 @@
 ../Core/Src/hardware.c:12:6:trafficDisplay1	16	static
 ../Core/Src/hardware.c:35:6:trafficDisplay2	16	static
 ../Core/Src/hardware.c:59:6:trafficToggle	16	static
-../Core/Src/hardware.c:87:6:pedestrianDispay	16	static
+../Core/Src/hardware.c:87:6:pedestrianDisplay	16	static
 ../Core/Src/hardware.c:111:6:pedestrianToggle	16	static
-../Core/Src/hardware.c:134:6:BuzzerOn	4	static
-../Core/Src/hardware.c:139:6:BuzzerOff	4	static
-../Core/Src/hardware.c:143:6:runAutoDebug	8	static
+../Core/Src/hardware.c:135:6:BuzzerOn	4	static
+../Core/Src/hardware.c:140:6:BuzzerOff	4	static
+../Core/Src/hardware.c:145:6:UART_transmit_counter	8	static
+../Core/Src/hardware.c:150:6:runAutoDebug	8	static

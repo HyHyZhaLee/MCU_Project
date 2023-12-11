@@ -5,10 +5,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/7SEG.c \
+../Core/Src/ISR.c \
 ../Core/Src/button.c \
-../Core/Src/fsm.c \
-../Core/Src/fsm_pes.c \
+../Core/Src/fsm_for_pedestrian.c \
+../Core/Src/fsm_for_traffic_light.c \
 ../Core/Src/hardware.c \
 ../Core/Src/main.c \
 ../Core/Src/scheduler.c \
@@ -17,14 +17,13 @@ C_SRCS += \
 ../Core/Src/stm32f1xx_it.c \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
-../Core/Src/system_stm32f1xx.c \
-../Core/Src/timer.c 
+../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
-./Core/Src/7SEG.o \
+./Core/Src/ISR.o \
 ./Core/Src/button.o \
-./Core/Src/fsm.o \
-./Core/Src/fsm_pes.o \
+./Core/Src/fsm_for_pedestrian.o \
+./Core/Src/fsm_for_traffic_light.o \
 ./Core/Src/hardware.o \
 ./Core/Src/main.o \
 ./Core/Src/scheduler.o \
@@ -33,14 +32,13 @@ OBJS += \
 ./Core/Src/stm32f1xx_it.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
-./Core/Src/system_stm32f1xx.o \
-./Core/Src/timer.o 
+./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
-./Core/Src/7SEG.d \
+./Core/Src/ISR.d \
 ./Core/Src/button.d \
-./Core/Src/fsm.d \
-./Core/Src/fsm_pes.d \
+./Core/Src/fsm_for_pedestrian.d \
+./Core/Src/fsm_for_traffic_light.d \
 ./Core/Src/hardware.d \
 ./Core/Src/main.d \
 ./Core/Src/scheduler.d \
@@ -49,8 +47,7 @@ C_DEPS += \
 ./Core/Src/stm32f1xx_it.d \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
-./Core/Src/system_stm32f1xx.d \
-./Core/Src/timer.d 
+./Core/Src/system_stm32f1xx.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -60,7 +57,7 @@ Core/Src/%.o Core/Src/%.su: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/7SEG.d ./Core/Src/7SEG.o ./Core/Src/7SEG.su ./Core/Src/button.d ./Core/Src/button.o ./Core/Src/button.su ./Core/Src/fsm.d ./Core/Src/fsm.o ./Core/Src/fsm.su ./Core/Src/fsm_pes.d ./Core/Src/fsm_pes.o ./Core/Src/fsm_pes.su ./Core/Src/hardware.d ./Core/Src/hardware.o ./Core/Src/hardware.su ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/scheduler.d ./Core/Src/scheduler.o ./Core/Src/scheduler.su ./Core/Src/software_timer.d ./Core/Src/software_timer.o ./Core/Src/software_timer.su ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su ./Core/Src/timer.d ./Core/Src/timer.o ./Core/Src/timer.su
+	-$(RM) ./Core/Src/ISR.d ./Core/Src/ISR.o ./Core/Src/ISR.su ./Core/Src/button.d ./Core/Src/button.o ./Core/Src/button.su ./Core/Src/fsm_for_pedestrian.d ./Core/Src/fsm_for_pedestrian.o ./Core/Src/fsm_for_pedestrian.su ./Core/Src/fsm_for_traffic_light.d ./Core/Src/fsm_for_traffic_light.o ./Core/Src/fsm_for_traffic_light.su ./Core/Src/hardware.d ./Core/Src/hardware.o ./Core/Src/hardware.su ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/scheduler.d ./Core/Src/scheduler.o ./Core/Src/scheduler.su ./Core/Src/software_timer.d ./Core/Src/software_timer.o ./Core/Src/software_timer.su ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su
 
 .PHONY: clean-Core-2f-Src
 

@@ -34,6 +34,9 @@ extern "C" {
 #include "global.h"
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
+
+extern UART_HandleTypeDef huart2;
+extern uint8_t UART_VALUE;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

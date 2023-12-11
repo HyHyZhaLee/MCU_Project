@@ -8,17 +8,22 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
+#include "fsm_for_traffic_light.h"
+#include "fsm_for_pedestrian.h"
 #include "software_timer.h"
 #include "button.h"
 #include "main.h"
 #include "hardware.h"
 #include "scheduler.h"
-#include "fsm.h"
+#include <stdio.h>
+#include <string.h>
 //Define timers
 #define TIMER_DEBUG 0
 #define TIMER_FSM_STATE 1
+#define TIMER_FOR_UART 2
 #define TIMER_PEDESTRIAN_PERIOD 3
 #define TIMER_TOGGLE	4
+
 //Define buttons
 #define BUTTON_MODE 0
 #define BUTTON_UP 1
@@ -38,14 +43,13 @@
 #define MAN_GREEN 14
 
 #define SETUP 	39
-#define MODE_1	40
-#define MODE_2 	41
-#define MODE_3	42
-#define MODE_4	43
+#define MODE_MODIFY_RED 	41
+#define MODE_MODIFY_YELLOW	42
+#define MODE_MODIFY_GREEN	43
 #define PEDESTRIAN_MODE 44
 
-extern int status;
-extern int counter;
-extern int pes_flag;
+extern int TRAFFIC_STATUS;
+extern int TRAFFIC_COUNTER;
+extern int flag_pedestrian;
 
 #endif /* INC_GLOBAL_H_ */

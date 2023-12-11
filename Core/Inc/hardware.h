@@ -31,7 +31,7 @@
 // LED DISPLAY
 void trafficDisplay1(uint8_t input); 							//DISPLAY TRAFFIC1 PORT D2-D3
 void trafficDisplay2(uint8_t input); 							//DISPLAY TRAFFIC2 PORT D4-D5
-void pedestrianDispay(uint8_t input); 							//DISPLAY PEDESTRIAN PORT D6-D7
+void pedestrianDisplay(uint8_t input); 							//DISPLAY PEDESTRIAN PORT D6-D7
 void trafficToggle(uint8_t input); 								//TOGGLE TRAFFIC1 PORT D2-D3 + TRAFFIC2 PORT D4-D5
 void pedestrianToggle(uint8_t input);							//TOGGLE PEDESTRIAN
 /* FOR BUTTON0 = PORT A0 A1
@@ -46,6 +46,8 @@ unsigned char is_button_long_pressed( unsigned char index ) ; 	//CHECK BUTTON LO
 void BuzzerOn(); //TURN ON BUZZER
 void BuzzerOff();//TURN OFF BUZZER
 
+//UART
+void UART_transmit_counter(); //Print to uart the counter of traffic
 /*
  * FOR RUNNING DEBUG HARDWARE
  * UNCOMMENT THESE LINE:

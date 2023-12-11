@@ -1,4 +1,6 @@
-Core/Src/fsm.o: ../Core/Src/fsm.c ../Core/Inc/fsm.h ../Core/Inc/global.h \
+Core/Src/fsm_for_traffic_light.o: ../Core/Src/fsm_for_traffic_light.c \
+ ../Core/Inc/fsm_for_traffic_light.h ../Core/Inc/global.h \
+ ../Core/Inc/fsm_for_traffic_light.h ../Core/Inc/fsm_for_pedestrian.h \
  ../Core/Inc/software_timer.h ../Core/Inc/button.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
@@ -24,10 +26,13 @@ Core/Src/fsm.o: ../Core/Src/fsm.c ../Core/Inc/fsm.h ../Core/Inc/global.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/hardware.h ../Core/Inc/scheduler.h ../Core/Inc/fsm.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
+ ../Core/Inc/hardware.h ../Core/Inc/scheduler.h \
  ../Core/Inc/software_timer.h
-../Core/Inc/fsm.h:
+../Core/Inc/fsm_for_traffic_light.h:
 ../Core/Inc/global.h:
+../Core/Inc/fsm_for_traffic_light.h:
+../Core/Inc/fsm_for_pedestrian.h:
 ../Core/Inc/software_timer.h:
 ../Core/Inc/button.h:
 ../Core/Inc/main.h:
@@ -55,7 +60,7 @@ Core/Src/fsm.o: ../Core/Src/fsm.c ../Core/Inc/fsm.h ../Core/Inc/global.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 ../Core/Inc/hardware.h:
 ../Core/Inc/scheduler.h:
-../Core/Inc/fsm.h:
 ../Core/Inc/software_timer.h:

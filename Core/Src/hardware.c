@@ -84,7 +84,7 @@ void trafficToggle(uint8_t input){
 }
 
 
-void pedestrianDispay(uint8_t input){
+void pedestrianDisplay(uint8_t input){
 	switch (input) {
 		case OFF:
 		  HAL_GPIO_WritePin(PEDLED_BIT1_GPIO_Port, PEDLED_BIT1_Pin, 0);
@@ -116,21 +116,22 @@ void pedestrianToggle(uint8_t input){
 	if(togglePedState){
 		switch(input){
 			case RED:
-				pedestrianDispay(RED);
+				pedestrianDisplay(RED);
 				break;
 			case YELLOW:
-				pedestrianDispay(YELLOW);
+				pedestrianDisplay(YELLOW);
 				break;
 			case GREEN:
-				pedestrianDispay(GREEN);
+				pedestrianDisplay(GREEN);
 				break;
 		}
 	}
 	else {
-		pedestrianDispay(OFF);
+		pedestrianDisplay(OFF);
 	}
 }
 
+uint16_t BuzzerPeriod = 500;
 void BuzzerOn(){
 	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,1000);
 }
@@ -140,11 +141,18 @@ void BuzzerOff(){
 	  __HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,0);
 }
 
+char packet[30];
+void UART_transmit_counter(){
+    sprintf(packet, "!7SEG:%d#\r\n", TRAFFIC_COUNTER);
+    HAL_UART_Transmit(&huart2, (uint8_t*)packet, strlen(packet), 1000);
+}
+
 void runAutoDebug() {
 	if(timer_flag[0]){
 		setTimer(1000,0);
 		HAL_GPIO_TogglePin(DEBUG_LED1_GPIO_Port, DEBUG_LED1_Pin);
 	}
+
 #ifndef __TEST_BUTTON
     // This code runs when __TEST_BUTTON is not defined
     #ifdef __TEST_BUZZER
