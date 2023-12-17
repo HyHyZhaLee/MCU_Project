@@ -10,8 +10,7 @@
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
 	if ( htim -> Instance == TIM2 ) {
-		button_reading() ;
-		timerRun();
+		SCH_Update();
 	}
 }
 

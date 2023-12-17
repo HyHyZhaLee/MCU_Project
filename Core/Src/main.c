@@ -103,15 +103,18 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  initButton();
-  initTimer(1000);
+
+  SCH_Init();
+  SCH_Add_Task(initTimer, 10, 0);
+  SCH_Add_Task(initButton, 1000, 0);
+  SCH_Add_Task(runAutoDebug, 11, 10);
+  SCH_Add_Task(fsm_function, 12, 10);
+  SCH_Add_Task(timerRun, 13, 1);
+  SCH_Add_Task(button_reading, 13, 10);
   while (1)
   {
-	  runAutoDebug();
-	  fsm_function();
-	  fsm_pedestrian();
     /* USER CODE END WHILE */
-
+	  SCH_Dispatch_Tasks();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
